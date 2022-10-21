@@ -1,0 +1,22 @@
+{
+    "service_tasks": [
+        {
+            "domain": "knowledge_finance_brand",
+            "task_name": "ner",
+            "evaluator_config": {
+                "snapshot_dt": "20220223_211635_317264",
+                "task_type": "TOKEN_CLASSIFICATION",
+                "target_corpus_dt": "20220223_185413_925758"
+            }
+        },
+        {
+            "domain": "clean_span_finance",
+            "task_name": "topic",
+            "evaluator_config": {
+                "snapshot_dt": "20220303_103613_551497",
+                "task_type": "TOKEN_CLASSIFICATION",
+                "target_corpus_dt": "20220224_143442_467961"
+            }
+        }
+    ] 
+}

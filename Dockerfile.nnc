@@ -1,0 +1,41 @@
+FROM continuumio/miniconda3
+
+ENV PYTTHON=python-3.8.10
+
+ARG GIT_DEV_TOKEN
+ARG HDFS_USERNAME
+# TODO ARG CONTAINER_OR_HOST_NAME
+ENV CONTAINER_NAME "dashi-nnc-container"
+ENV PATH "/home/nauts/.local/bin:/opt/conda/bin:${PATH}"
+ENV NAUTS_DASHI_NNC_VERSION=0.0.2
+ENV NAUTS_SERVICE_LEVEL stage
+ENV NAUTS_HOME /user/nauts
+ENV NAUTS_LOCAL_ROOT ""
+# ENV ARROW_LIBHDFS_DIR=$HADOOP_HOME/../usr/lib
+
+WORKDIR ${NAUTS_HOME}
+
+COPY resources resources/
+COPY experiments/nauts/resources/application_real.json experiments/nauts/resources/application.json
+COPY experiments/nauts/resources/deploys/nnc/nnc_deploy.json ${CONTAINER_NAME}/20220502_000000_000000/deploys/nnc/
+COPY src/dashi dashi/
+COPY mypy38.tar.gz .
+#COPY dashi_env.yml .
+COPY entrypoint_nnc.sh .
+
+RUN apt-get update && apt-get -y install gcc
+
+RUN useradd -U -s /bin/bash -u 2002 -m nauts && chown -R nauts:nauts ${NAUTS_HOME} && chown -R nauts:nauts /opt/conda
+USER nauts
+
+# create conda-env. from conda packaging
+RUN mkdir dashi-env && tar -xvzf mypy38.tar.gz -C dashi-env && rm mypy38.tar.gz
+# RUN echo "source /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
+# RUN echo "conda env create -n dashi_env -f dashi_env.yml" >> ~/.bashrc
+RUN echo "source /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
+RUN echo "conda activate ./dashi-env" >> ~/.bashrc
+
+# TODO if we reconsider to pack conda environment using *env.yaml file, then the commands like 'RUN pip install git+https' must be declared at the below lines
+
+ENTRYPOINT ["/bin/sh", "entrypoint_nnc.sh"]
+# RUN /bin/bash -C 

@@ -1,0 +1,11 @@
+pydantic
+torch==1.9.0
+transformers==4.18.0
+fastapi
+nltk
+uvicorn[standard]
+git+https://${GIT_DEV_TOKEN}@github.com/cloudjo21/tunip.git@v0.0.18
+git+https://${GIT_DEV_TOKEN}@github.com/cloudjo21/tweak.git@0.0.3-beta2
+
+# in the case of bitbucket.org
+# git+https://YOUR_BITBUCKET_ACCOUNT:YOUR_HASH@bitbucket.org/YOUR_ID/tunip.git@v0.0.18
