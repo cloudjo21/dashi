@@ -1,0 +1,11 @@
+{
+    "fs": "local",
+    "hdfs.host": "hdfs://master001.hadoop.prod.myhost.io:8020",
+    "hdfs.protocol": "hdfs://",
+    "hdfs.hostname": "master001.hadoop.prod.myhost.io",
+    "hdfs.port": "8020",
+    "hdfs.username": "nauts",
+    "local.username": "nauts",
+    "elastic.host": "https://search-policy-YOUR_HASH.YOUR_REGION.es.amazonaws.com:YOUR_ES_PORT",
+    "nugget.host": "http://ec2-YOUR_IP.YOUR_REGION.compute.amazonaws.com:31019"
+}

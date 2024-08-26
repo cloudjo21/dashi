@@ -1,0 +1,16 @@
+{
+    "service_tasks": [
+        {
+            "id": 1,
+            "name": "fin_circle",
+            "snapshot": "20211221_181733_491729",
+            "task_info": {"name": "document", "source_type": "wiki", "index_type": "PCAR128,IVF32,SQ8"}
+        },
+        {
+            "id": 2,
+            "name": "wiki.small",
+            "snapshot": "20220221_231852_536125",
+            "task_info": {"name": "entity", "source_type": "wiki.small", "index_type": "PCAR128,IVF32,SQ8"}
+        } 
+    ]
+}

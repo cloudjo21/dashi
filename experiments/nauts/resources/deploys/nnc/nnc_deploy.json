@@ -1,0 +1,5 @@
+{
+    "model_name": "HAC",
+    "es_search_result_size": 70,
+    "distance_threshold": 0.85
+}

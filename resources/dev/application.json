@@ -1,0 +1,15 @@
+{
+    "fs": "gcs",
+    "gcs.protocol": "gs://",
+    "gcs.bucketname": "",
+    "gcs.username": "data",
+    "gcs.project_id": "",
+    "gcs.region": "asia-northeast1",
+    "db.user": "",
+    "db.password": "",
+    "db.port": "",
+    "db.database": "",
+    "local.username": "data",
+    "elastic.host": "https://0.0.0.0:9200",
+    "nugget.host": "http://0.0.0.0:31019"
+}
