@@ -24,8 +24,8 @@ snapshot_paths = file_handler.list_dir(service_config.deploy_root_path)
 assert snapshot_paths
 latest_deploy_path = snapshot_paths[-1]
 
-pretrained_model_deploy_json = json.load(open(f"{latest_deploy_path}/deploys/pretrained_model/pretrained_model_deploy.json"))
-pretrained_model_service_deploy = MultiPretrainingTaskServiceDeploy.parse_obj(pretrained_model_deploy_json)
+pretrained_model_deploy_json = json.load(open(f"{latest_deploy_path}/deploys/pretrained_model/deploy.json"))
+pretrained_model_service_deploy = MultiPretrainingTaskServiceDeploy.model_validate(pretrained_model_deploy_json)
 
 model_coll_service = PreTrainedModelCollectionService(pretrained_model_service_deploy)
 

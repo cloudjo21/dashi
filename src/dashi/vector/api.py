@@ -26,6 +26,7 @@ api = APIRouter()
 class VecSearchRequest(BaseModel):
     domain_name: str
     task_name: str
+    model_name: str
     texts: List[str]
 
 
@@ -58,7 +59,7 @@ vector_service = VectorIndexCollectionService(service_config, vector_service_dep
 def post_search(req: VecSearchRequest):
 
     body = {
-        "model_name":"monologg/koelectra-small-v3-discriminator",
+        "model_name": req.model_name,
         "texts": req.texts
     }
     response = requests.post('http://127.0.0.1:31018/predict/plm/', json.dumps(body))
