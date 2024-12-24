@@ -84,7 +84,7 @@ class SingleVectorSetTaskServiceDeploy(BaseModel, TaskServiceDeploy):
     domain: str
     snapshot: str
     task_info: TaskInfo
-    search_info: Optional[SearchIndexInfo]
+    search_info: Optional[SearchIndexInfo] = None
     metric_type: Optional[VectorMetricType] = VectorMetricType.COSINE_SIM
 
     # vector_set_type: VectorSetType
