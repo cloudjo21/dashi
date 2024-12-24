@@ -52,6 +52,9 @@
 
 ## [deployment configuration](deploy.md)
 
+## set deploy directory while running local server BUT container runtime
+- $NAUTS_LOCAL_ROOT/user/[username]/${HOSTNAME}/[snapshot_dt]/deploys/...
+
 ## start all api server
 
 ```shell
