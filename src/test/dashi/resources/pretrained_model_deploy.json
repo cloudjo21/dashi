@@ -9,6 +9,7 @@
                     "model_path": "/user/nauts/mart/plm/models/monologg%2Fkoelectra-small-v3-discriminator",
                     "model_name": "monologg/koelectra-small-v3-discriminator"
                 },
+                "predict_output_type": "last_hidden.mean_pooling",
                 "tokenizer_config": {
                     "model_path": "/user/nauts/mart/plm/models/monologg%2Fkoelectra-small-v3-discriminator",
                     "path": "/user/nauts/mart/tokenizers/monologg%2Fkoelectra-small-v3-discriminator",
