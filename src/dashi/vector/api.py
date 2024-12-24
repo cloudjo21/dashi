@@ -48,8 +48,8 @@ snapshot_paths = file_handler.list_dir(service_config.deploy_root_path)
 assert snapshot_paths
 latest_deploy_path = snapshot_paths[-1]
 
-vector_deploy_json = json.load(open(f"{latest_deploy_path}/deploys/vector/vector_deploy.json"))
-vector_service_deploy = MultiVectorSetTaskServiceDeploy.parse_obj(vector_deploy_json)
+vector_deploy_json = json.load(open(f"{latest_deploy_path}/deploys/vector/deploy.json"))
+vector_service_deploy = MultiVectorSetTaskServiceDeploy.model_validate(vector_deploy_json)
 
 vector_service = VectorIndexCollectionService(service_config, vector_service_deploy)
 
